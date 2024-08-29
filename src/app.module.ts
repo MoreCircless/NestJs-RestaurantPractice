@@ -1,6 +1,7 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { OrdersModule } from './orders/orders.module';
 import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [OrdersModule, AuthModule],
@@ -8,3 +9,7 @@ import { AuthModule } from './auth/auth.module';
   providers: [],
 })
 export class AppModule {}
+
+
+
+
