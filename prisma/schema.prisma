@@ -54,11 +54,11 @@ model Order {
 model Meals {
 
   id Int @id @default(autoincrement())
+  orderId Int
   title String @unique
   description String?
   price Float 
-
-
+  order Order @relation(fields: [orderId], references: [id])
 }
 
 
