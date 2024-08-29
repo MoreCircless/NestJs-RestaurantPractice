@@ -7,7 +7,7 @@ export class CreateOrderDto {
     status : OrderStatus;
 }
 
-enum OrderStatus {
+export enum OrderStatus {
     PENDING = "PENDING",
     SUCCESSFUL = "SUCCESSFUL"
 }

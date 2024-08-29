@@ -15,18 +15,31 @@ export class OrdersService {
   }
 
   findAll() {
-    return `This action returns all orders`;
+    return this.prisma.order.findMany()
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} order`;
+    return this.prisma.order.findFirst({where: {
+      id
+    }})
   }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {
-    return `This action updates a #${id} order`;
+
+      const newOrder = this.prisma.order.update({
+        where: {
+          id : 6
+        },
+        data : {
+          status: updateOrderDto.toString()
+    }});
   }
 
   remove(id: number) {
-    return `This action removes a #${id} order`;
+    return this.prisma.order.delete({where: 
+      {
+        id
+      }
+    })
   }
 }
