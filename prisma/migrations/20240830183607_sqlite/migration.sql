@@ -1,4 +1,13 @@
 -- CreateTable
+CREATE TABLE "User" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "Table" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "number" INTEGER NOT NULL,
@@ -40,6 +49,9 @@ CREATE TABLE "Meals" (
     "price" REAL NOT NULL,
     CONSTRAINT "Meals_orderId_fkey" FOREIGN KEY ("orderId") REFERENCES "Order" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Meals_title_key" ON "Meals"("title");

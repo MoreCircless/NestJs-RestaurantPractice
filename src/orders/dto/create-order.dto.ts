@@ -1,21 +1,19 @@
-import { Meals } from "@prisma/client";
-
 export class CreateOrderDto {
-    userId : number;
-    //items : Meals[];
-    totalPrice : number;
-    status : OrderStatus;
+  userId: number;
+  //items : Meals[];
+  totalPrice: number;
+  status: OrderStatus;
 }
 
 export enum OrderStatus {
-    PENDING = "PENDING",
-    SUCCESSFUL = "SUCCESSFUL"
+  PENDING = 'PENDING',
+  SUCCESSFUL = 'SUCCESSFUL',
 }
 
 // id Int @id @default(autoincrement())
-// userId Int 
+// userId Int
 // items Meals[]
-// totalPrice Float 
+// totalPrice Float
 // status String
 // createdAt DateTime @default(now())
 // updatedAt DateTime @updatedAt
