@@ -61,6 +61,9 @@ CREATE TABLE "Meals" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Table_number_key" ON "Table"("number");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Meals_title_key" ON "Meals"("title");
 
 -- AddForeignKey

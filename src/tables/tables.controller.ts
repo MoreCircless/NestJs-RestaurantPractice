@@ -47,5 +47,3 @@ export class TablesController {
     return this.tablesService.remove(+id);
   }
 }
-
-//esto es un comenbtario de prieba
