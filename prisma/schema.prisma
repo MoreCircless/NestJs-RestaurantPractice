@@ -23,6 +23,8 @@ model User {
   password     String
   role         Role          @default(USER)
   reservations Reservation[] 
+
+  Feedback Feedback[]
 }
 
 model Table {
@@ -55,6 +57,8 @@ model Order {
   status     String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+
+  Feedback Feedback[]
 }
 
 model Meals {
@@ -64,4 +68,16 @@ model Meals {
   description String?
   price       Float
   order       Order   @relation(fields: [orderId], references: [id])
+}
+
+model Feedback {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  orderId   Int
+  rating    Int
+  comment   String?
+  user      User     @relation(fields: [userId], references: [id])
+  order     Order    @relation(fields: [orderId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
