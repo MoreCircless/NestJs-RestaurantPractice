@@ -12,7 +12,7 @@ export class MealsService {
   }
 
   async findAll() {
-    return `This action returns all meals`;
+    return await this.prisma.meals.findMany();
   }
 
   async findOne(id: number) {

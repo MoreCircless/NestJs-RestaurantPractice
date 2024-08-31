@@ -5,41 +5,42 @@ import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class OrdersService {
-
-  constructor(private readonly prisma : PrismaService){}
+  constructor(private readonly prisma: PrismaService) {}
 
   create(createOrderDto: CreateOrderDto) {
     return this.prisma.order.create({
-      data: createOrderDto
+      data: createOrderDto,
     });
   }
 
   findAll() {
-    return this.prisma.order.findMany()
+    return this.prisma.order.findMany();
   }
 
   findOne(id: number) {
-    return this.prisma.order.findFirst({where: {
-      id
-    }})
+    return this.prisma.order.findFirst({
+      where: {
+        id,
+      },
+    });
   }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {
-
-      const newOrder = this.prisma.order.update({
-        where: {
-          id : 6
-        },
-        data : {
-          status: updateOrderDto.toString()
-    }});
+    const newOrder = this.prisma.order.update({
+      where: {
+        id: 6,
+      },
+      data: {
+        status: updateOrderDto.toString(),
+      },
+    });
   }
 
   remove(id: number) {
-    return this.prisma.order.delete({where: 
-      {
-        id
-      }
-    })
+    return this.prisma.order.delete({
+      where: {
+        id,
+      },
+    });
   }
 }

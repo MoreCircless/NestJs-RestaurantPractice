@@ -31,17 +31,15 @@ export class AuthGuard implements CanActivate {
       });
       request['user'] = payload;
 
-      
-      const requiredRoles = this.reflector.getAllAndOverride<Role[]>(ROLES_KEY, [
-        context.getHandler(),
-        context.getClass(),
-      ]);
+      const requiredRoles = this.reflector.getAllAndOverride<Role[]>(
+        ROLES_KEY,
+        [context.getHandler(), context.getClass()],
+      );
 
       // Si esta seteada la condicion, entonces verifico que en el array de requiredRole este presente el del JWT, sino es erroneo
       if (requiredRoles && !requiredRoles.includes(payload.role)) {
         throw new ForbiddenException('You do not have the required role');
       }
-
     } catch (err) {
       throw new UnauthorizedException('Invalid token');
     }
