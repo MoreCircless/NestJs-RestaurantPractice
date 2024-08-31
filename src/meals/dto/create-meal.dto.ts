@@ -1,8 +1,14 @@
 export class CreateMealDto {
-  userId: number;
-  totalPrice: number;
+  orderId: number;
+  price: number;
   title: string;
   description?: string;
-  price: number;
-  items?: Array<number>;
 }
+
+/*
+ id          Int     @id @default(autoincrement())
+  orderId     Int
+  title       String  @unique
+  description String?
+  price       Float
+*/

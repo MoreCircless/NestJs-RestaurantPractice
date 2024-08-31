@@ -1,11 +1,6 @@
 export class CreateOrderDto {
   userId: number;
-  //items : Meals[];
   totalPrice: number;
-  status: OrderStatus;
+  status: string;
 }
 
-export enum OrderStatus {
-  PENDING = 'PENDING',
-  SUCCESSFUL = 'SUCCESSFUL',
-}
