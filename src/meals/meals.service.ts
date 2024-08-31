@@ -16,8 +16,10 @@ export class MealsService {
     }
     
     catch(e){
-     throw new InternalServerErrorException("Meal could not be created!" + e);
+     throw new InternalServerErrorException("Meal could not be created!");
     }
+
+    
     
     
   }
