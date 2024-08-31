@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateMealDto } from './dto/create-meal.dto';
 import { UpdateMealDto } from './dto/update-meal.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -8,7 +8,18 @@ export class MealsService {
   constructor(private readonly prisma: PrismaService) {}
 
   async create(createMealDto: CreateMealDto) {
-    return await this.prisma.meals.create({ data: createMealDto });
+
+    try{
+      
+      const newMeal =  await this.prisma.meals.create({ data: createMealDto });
+      return newMeal;
+    }
+    
+    catch(e){
+     throw new InternalServerErrorException("Meal could not be created!" + e);
+    }
+    
+    
   }
 
   async findAll() {

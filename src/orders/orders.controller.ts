@@ -12,7 +12,6 @@ export class OrdersController {
 
   @Post()
   @UseGuards(AuthGuard)
-  @Roles(Role.USER)
   create(@Body() createOrderDto: CreateOrderDto) {
     return this.ordersService.create(createOrderDto);
   }
