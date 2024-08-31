@@ -1,7 +1,8 @@
-import { Injectable, InternalServerErrorException } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { CreateTableDto } from './dto/create-table.dto';
 import { UpdateTableDto } from './dto/update-table.dto';
 import { PrismaService } from 'src/prisma.service';
+import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class TablesService {
@@ -18,7 +19,7 @@ export class TablesService {
   async findOne(id: number) {
     const findTable = await this.prisma.table.findUnique({ where: { id: id } });
     if (!findTable) {
-      return 'Table not found!';
+      return new NotFoundException('Table not found');
     }
     return findTable;
   }

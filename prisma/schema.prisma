@@ -21,7 +21,7 @@ model User {
 
 model Table {
   id          Int           @id @default(autoincrement())
-  number      Int
+  number      Int           @unique
   capacity    Int
   reservation Reservation[]
   createdAt   DateTime      @default(now())
