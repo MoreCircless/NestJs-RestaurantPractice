@@ -2,7 +2,6 @@ import { Injectable, InternalServerErrorException, NotFoundException } from '@ne
 import { CreateTableDto } from './dto/create-table.dto';
 import { UpdateTableDto } from './dto/update-table.dto';
 import { PrismaService } from 'src/prisma.service';
-import { NotFoundError } from 'rxjs';
 
 @Injectable()
 export class TablesService {
