@@ -27,9 +27,9 @@ export class AuthService {
             throw new UnauthorizedException("Credentials are not valid!");
         }
 
-        const payload = { sub: (await user).name, email: (await user).email };
+        const payload = { sub: (await user).name, email: (await user).email, role: user.role };
         return {
-        access_token: await this.jwtService.signAsync(payload),
+        token: await this.jwtService.signAsync(payload),
         };
 
 
