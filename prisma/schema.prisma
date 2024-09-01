@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role{
+enum Role {
   ADMIN
   USER
 }
@@ -22,7 +22,7 @@ model User {
   email        String        @unique
   password     String
   role         Role          @default(USER)
-  reservations Reservation[] 
+  reservations Reservation[]
 
   Feedback Feedback[]
 }
